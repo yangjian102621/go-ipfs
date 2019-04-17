@@ -3,11 +3,10 @@ package core
 import (
 	"context"
 
-	"github.com/ipfs/go-metrics-interface"
-	"go.uber.org/fx"
-
 	"github.com/ipfs/go-ipfs/core/bootstrap"
 	"github.com/ipfs/go-ipfs/core/node"
+	"github.com/ipfs/go-metrics-interface"
+	"go.uber.org/fx"
 )
 
 type BuildCfg = node.BuildCfg // Alias for compatibility until we properly refactor the constructor interface

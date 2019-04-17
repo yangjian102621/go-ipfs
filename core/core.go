@@ -27,7 +27,6 @@ import (
 	"github.com/ipfs/go-ipfs/pin"
 	"github.com/ipfs/go-ipfs/provider"
 	"github.com/ipfs/go-ipfs/repo"
-	rp "github.com/ipfs/go-ipfs/reprovide"
 
 	bserv "github.com/ipfs/go-blockservice"
 	bstore "github.com/ipfs/go-ipfs-blockstore"
@@ -94,8 +93,7 @@ type IpfsNode struct {
 	Routing      routing.IpfsRouting `optional:"true"` // the routing system. recommend ipfs-dht
 	Exchange     exchange.Interface  // the block exchange + strategy (bitswap)
 	Namesys      namesys.NameSystem  // the name system, resolves paths to hashes
-	Provider     provider.Provider   // the value provider system
-	Reprovider   *rp.Reprovider      `optional:"true"` // the value reprovider system
+	Provider     provider.System     // the value provider system
 	IpnsRepub    *ipnsrp.Republisher `optional:"true"`
 
 	AutoNAT  *autonat.AutoNATService    `optional:"true"`
