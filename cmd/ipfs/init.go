@@ -62,7 +62,7 @@ environment variable:
 	},
 	PreRun: func(req *cmds.Request, env cmds.Environment) error {
 		cctx := env.(*oldcmds.Context)
-		daemonLocked, err := fsrepo.LockedByOtherProcess(cctx.ConfigRoot)
+		daemonLocked, err := fsrepo.LockedByOtherProcess(cctx.RepoPath)
 		if err != nil {
 			return err
 		}
@@ -110,7 +110,7 @@ environment variable:
 			profiles = strings.Split(profile, ",")
 		}
 
-		return doInit(os.Stdout, cctx.ConfigRoot, empty, nBitsForKeypair, profiles, conf)
+		return doInit(os.Stdout, cctx.RepoPath, empty, nBitsForKeypair, profiles, conf)
 	},
 }
 

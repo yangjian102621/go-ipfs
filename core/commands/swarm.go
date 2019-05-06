@@ -647,7 +647,7 @@ add your filters to the ipfs config file.
 			return errors.New("no filters to add")
 		}
 
-		r, err := fsrepo.Open(env.(*commands.Context).ConfigRoot)
+		r, err := fsrepo.Open(env.(*commands.Context).RepoPath)
 		if err != nil {
 			return err
 		}
@@ -706,7 +706,7 @@ remove your filters from the ipfs config file.
 			return errors.New("failed to cast network to swarm network")
 		}
 
-		r, err := fsrepo.Open(env.(*commands.Context).ConfigRoot)
+		r, err := fsrepo.Open(env.(*commands.Context).RepoPath)
 		if err != nil {
 			return err
 		}
