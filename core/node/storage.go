@@ -6,10 +6,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ipfs/go-datastore"
 	"github.com/ipfs/go-datastore/retrystore"
 	blockstore "github.com/ipfs/go-ipfs-blockstore"
-	config "github.com/ipfs/go-ipfs-config"
 	"go.uber.org/fx"
 
 	"github.com/ipfs/go-ipfs/core/node/helpers"
@@ -26,16 +24,6 @@ func isTooManyFDError(err error) bool {
 	}
 
 	return false
-}
-
-// RepoConfig loads configuration from the repo
-func RepoConfig(repo repo.Repo) (*config.Config, error) {
-	return repo.Config()
-}
-
-// Datastore provides the datastore
-func Datastore(repo repo.Repo) datastore.Datastore {
-	return repo.Datastore()
 }
 
 // BaseBlocks is the lower level blockstore without GC or Filestore layers
