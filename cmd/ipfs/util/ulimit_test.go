@@ -40,7 +40,7 @@ func TestManageInvalidNFds(t *testing.T) {
 
 	if _, _, err := ManageFdLimit(); err == nil {
 		t.Errorf("ManageFdLimit should return an error")
-	} else if err != nil {
+	} else {
 		flag := strings.Contains(err.Error(),
 			"failed to raise ulimit to IPFS_FD_MAX")
 		if !flag {
